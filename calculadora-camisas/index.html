@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Camisas – Cierre del día</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <div class="brand">
+          <span class="brand__icon">👕</span>
+          <div>
+            <h1>Calculadora de camisas</h1>
+            <p id="today"></p>
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <span class="saved">● Guardado automático</span>
+          <button id="btn-close-day" class="btn btn--amber">Cierre del día</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <section class="col">
+        <div id="message" class="message"></div>
+
+        <div class="card">
+          <h2 class="card__title">1. Elige la cantidad del paquete</h2>
+          <div id="options" class="options"></div>
+
+          <div class="custom">
+            <input id="custom-input" type="number" min="1" inputmode="numeric" placeholder="Otra cantidad…" />
+            <button id="btn-custom" class="btn btn--dark">Anotar</button>
+          </div>
+          <div id="custom-badge" class="badge" hidden></div>
+        </div>
+
+        <button id="btn-next" class="btn-next"></button>
+      </section>
+
+      <aside class="col">
+        <div id="total-card" class="total">
+          <p class="total__label">Total del día</p>
+          <p id="total-shirts" class="total__number">0</p>
+          <p id="total-info" class="total__info"></p>
+          <p id="pending-info" class="pending-info" hidden></p>
+
+          <div class="total__price">
+            <label for="price">Precio por camisa (opcional)</label>
+            <div class="price-row">
+              <span>$</span>
+              <input id="price" type="number" min="0" step="0.01" placeholder="0.00" />
+            </div>
+            <p id="money" class="money" hidden></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">Paquetes anotados</h2>
+            <button id="btn-undo" class="link link--red">↩ Deshacer último</button>
+          </div>
+          <ul id="entries" class="entries"></ul>
+        </div>
+      </aside>
+
+      <section id="history-card" class="card span-2" hidden>
+        <div class="card__head">
+          <h2 class="card__title">Días cerrados</h2>
+          <button id="btn-clear-history" class="link">Borrar historial</button>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <!-- Ventana de cierre -->
+    <div id="modal" class="modal" hidden>
+      <div class="modal__box">
+        <p class="modal__emoji">🌙</p>
+        <h3>¿Cerrar el día?</h3>
+        <p id="modal-total" class="modal__total">0</p>
+        <p id="modal-sub" class="modal__sub"></p>
+        <p id="modal-pending" class="modal__pending" hidden></p>
+        <div class="modal__buttons">
+          <button id="btn-cancel" class="btn btn--outline">Cancelar</button>
+          <button id="btn-confirm" class="btn btn--dark">Cerrar día</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
